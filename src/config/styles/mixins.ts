@@ -4,7 +4,7 @@ export type FlexDirectionType = 'row' | 'column' | 'row-reverse' | 'column-rever
 
 export type JustifyContentType = 'start' | 'end' | 'center' | 'space-between' | 'space-around' | 'space-evenly';
 
-export type AlignContentType = 'start' | 'end' | 'center' | 'space-between' | 'space-around'
+export type AlignContentType = 'start' | 'end' | 'center' | 'space-between' | 'space-around' | 'auto'
 
 export function DisplayFlex(flexDirection: FlexDirectionType, justifyContent:  JustifyContentType, alignContent: AlignContentType) {
     return css`

@@ -2,11 +2,28 @@
 import ProductElement from "../../components/ProductElement";
 import Section, { ProductContent } from "./styles";
 import productApi from "../../services/ProductApi";
-import { useEffect } from "react";
 import { useQuery } from "react-query";
+import ProductEmptyElement from "../../components/ProductEmptyElement";
 
 export default function ProductSection(): React.ReactElement {
     const query = useQuery('product-query', productApi.getProduct);
+
+    if (query.isLoading) {
+        return (
+            <Section>
+            <ProductContent>
+                <ProductEmptyElement />
+                <ProductEmptyElement />
+                <ProductEmptyElement />
+                <ProductEmptyElement />
+                <ProductEmptyElement />
+                <ProductEmptyElement />
+                <ProductEmptyElement />
+                <ProductEmptyElement />
+            </ProductContent>
+        </Section>
+        )
+    }
 
     return (
         <Section>

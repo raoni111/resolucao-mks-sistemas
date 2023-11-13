@@ -1,8 +1,15 @@
+import { useDispatch, useSelector } from "react-redux";
 import CartButton from "../../components/CartButton";
 import {Header, Logo} from "./styles";
+import { huddleDisplayCart } from "../../fatures/displayCart";
 
 export default function HeaderStore(): React.ReactElement {
-    const numberOfProducts = 0;
+    const cartLength = useSelector((state: any) => state.cartSlice.products.length);
+    const dispatch = useDispatch();
+
+    const huddleOnClick = () => {
+        dispatch(huddleDisplayCart())
+    }
 
     return (
         <Header>
@@ -12,7 +19,7 @@ export default function HeaderStore(): React.ReactElement {
                     <span>Sistemas</span>
                 </h1>
             </Logo>
-            <CartButton numberOfProducts={numberOfProducts} />
+            <CartButton numberOfProducts={cartLength} onClickCapture={huddleOnClick}/>
         </Header>
     )
 }

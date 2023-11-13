@@ -10,6 +10,10 @@ export type ProductType = {
     updatedAt: string;
 }
 
+export type CartProductType = ProductType & {
+    amount: number;
+} ;
+
 export type ProductsType = {
     products: ProductType[];
     count: number;
