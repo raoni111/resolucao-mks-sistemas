@@ -2131,6 +2131,11 @@
   resolved "https://registry.yarnpkg.com/@types/json5/-/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
   integrity sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==
 
+"@types/lscache@^1.3.4":
+  version "1.3.4"
+  resolved "https://registry.yarnpkg.com/@types/lscache/-/lscache-1.3.4.tgz#16a34148c9aa7bcca24484333744816b7e505474"
+  integrity sha512-boZGIpx9t9lISW2EllC4APDwMQAouwViERSZU2T1p5gYs/SVM1ohq29+eBDb8g6D3FDPgeUsOALZIH0IGwLNvw==
+
 "@types/mime@*":
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/@types/mime/-/mime-3.0.4.tgz#2198ac274de6017b44d941e00261d5bc6a0e0a45"
@@ -6585,6 +6590,11 @@ lru-cache@^6.0.0:
   integrity sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA==
   dependencies:
     yallist "^4.0.0"
+
+lscache@^1.3.2:
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/lscache/-/lscache-1.3.2.tgz#20f186e97eafd012810ea59d4ab6d81ead5a321b"
+  integrity sha512-CBZT/pDcaK3I3XGwDLaszDe8hj0pCgbuxd3W79gvHApBSdKVXvR9fillbp6eLvp7dLgtaWm3a1mvmhAqn9uCXQ==
 
 lz-string@^1.5.0:
   version "1.5.0"

@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { CartProductType, ProductType } from "../services/types/product-protocol";
+import saveCache from "../services/saveCache";
+import lscache from "lscache";
 
 type ActionType = {
     payload: ProductType,
@@ -14,11 +16,20 @@ type ActionProductAmount = {
     }
 }
 
+const returnProductCache = () => {
+    const productCache = lscache.get('products') as CartProductType[];
+    if (productCache) {
+        return productCache;
+    }
+
+    return [];
+}
+
 
 const cartSlice = createSlice({
     name: 'cartSlice',
     initialState: {
-        products: [] as CartProductType[],
+        products: returnProductCache(),
     },
     reducers: {
         incrementProduct: (state, action: ActionType) => {
@@ -32,9 +43,12 @@ const cartSlice = createSlice({
                 ...action.payload,
                 amount: 1,
             });
+
+            saveCache(state.products);
         },
         decrementProduct: (state, action: ActionType) => {
             state.products = state.products.filter(product => product.id !== action.payload.id);
+            saveCache(state.products);
         },
         addProductAmount: (state, action: ActionProductAmount) => {
             state.products = state.products.map(product => {
@@ -45,7 +59,9 @@ const cartSlice = createSlice({
                     }
                 }
                 return product;
-            })
+            });
+
+            saveCache(state.products);
         }
     }
 });
